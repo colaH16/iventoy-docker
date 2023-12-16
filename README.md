@@ -1,3 +1,8 @@
+# forked from NavyStack / iventoy-docker
+이 fork의 목표는 baseos를 바꿔보기 위함이다. 
+특히 iventoy downloader는 tar만 사용하는데 왜 굳이 별도의 base를 사용했는지 드는 의문이었다.
+Fedora 기반으로 구성해보자
+
 # iventoy-docker
 
 [![Docker Image CI](https://github.com/NavyStack/iventoy-docker/actions/workflows/docker-image.yml/badge.svg)](https://github.com/NavyStack/iventoy-docker/actions/workflows/docker-image.yml)
