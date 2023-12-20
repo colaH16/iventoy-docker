@@ -1,12 +1,13 @@
-FROM node:lts-bookworm AS iventoy-downloader
+FROM opensuse/tumbleweed:latest AS iventoy-downloader
 ARG IVENTOY_VERSION_NS
 WORKDIR /iventoy
-RUN wget https://github.com/ventoy/PXE/releases/download/v${IVENTOY_VERSION_NS}/iventoy-${IVENTOY_VERSION_NS}-linux-free.tar.gz && \
-    tar -xvf *.tar.gz && \
+#RUN zypper in wget -y
+RUN curl -JOL https://github.com/ventoy/PXE/releases/download/v${IVENTOY_VERSION_NS}/iventoy-${IVENTOY_VERSION_NS}-linux-free.tar.gz && \
+    tar -zxvf *.tar.gz && \
     rm -rf iventoy-${IVENTOY_VERSION_NS}-linux.tar.gz && \
     mv iventoy-${IVENTOY_VERSION_NS} iventoy
 
-FROM debian:bookworm-slim AS final
+FROM opensuse/tumbleweed:latest AS final
 ENV AUTO_START_PXE=true
 WORKDIR /app
 
