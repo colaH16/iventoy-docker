@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   iventoy:
-    image: navystack/iventoy:latest
+    image: cola16/iventoy-suse:tumbleweed-2023-1220-1
     restart: always
     ports:
       - target: 16000
