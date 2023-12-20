@@ -1,6 +1,7 @@
-FROM node:lts-bookworm AS iventoy-downloader
+FROM debian:bookworm-slim AS iventoy-downloader
 ARG IVENTOY_VERSION_NS
 WORKDIR /iventoy
+RUN apt update && apt install wget -y
 RUN wget https://github.com/ventoy/PXE/releases/download/v${IVENTOY_VERSION_NS}/iventoy-${IVENTOY_VERSION_NS}-linux-free.tar.gz && \
     tar -xvf *.tar.gz && \
     rm -rf iventoy-${IVENTOY_VERSION_NS}-linux.tar.gz && \
